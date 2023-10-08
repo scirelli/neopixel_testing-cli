@@ -7,7 +7,7 @@ from os.path import basename, dirname, splitext
 from setuptools import find_namespace_packages, setup  # type: ignore
 
 PROJECT_NAME = "Project Name Here"
-PYTHON_VERSION = (3, 7)
+PYTHON_VERSION = (3, 12)
 
 if sys.version_info < PYTHON_VERSION:
     raise RuntimeError(f"{PROJECT_NAME} requires Python {'.'.join([str(x) for x in PYTHON_VERSION])}+")

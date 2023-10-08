@@ -4,11 +4,11 @@ VENV_DIR=.venv
 VENV_BIN=$(VENV_DIR)/bin
 
 PIP=$(VENV_BIN)/pip
-PYTHON_EXE=python3.7
+PYTHON_EXE=python3
 PYTHON=$(VENV_BIN)/python3
 PYENV_INSTALL=0
 PYTHON_INSTALL=0
-PYTHON_VERSION=$(shell cat .python-version 2> /dev/null || echo '3.7.13')
+PYTHON_VERSION=$(shell cat .python-version 2> /dev/null || echo '3.12.0')
 IS_CORRECT_PYTHON_VERSION=$(shell $(PYTHON_EXE) --version | grep -oE '$(PYTHON_VERSION)')
 
 define MSG_INSTALL_PYTHON3
@@ -73,8 +73,8 @@ run-test: $(VENV_DIR)	## Run in debug mode, and log to a file.
 	/usr/bin/env LOGLEVEL=debug $(PYTHON) ./src/main.py 2>&1 | tee /tmp/logs_$$(date +%m-%d-%Y_%H:%M:%S).txt
 
 .PHONY: run
-run:	## Run server
-	export LOGLEVEL=debug && $(PYTHON) ./src/main.py
+run:	## Run the script
+	@sudo -E $(PYTHON) src/main.py
 
 
 .PHONY: install-dev-minimal

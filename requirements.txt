@@ -4,3 +4,7 @@ wheel
 python-json-logger
 tabulate
 typing-extensions
+adafruit-circuitpython-neopixel
+adafruit-blinka
+rpi_ws281x
+RPi.GPIO
